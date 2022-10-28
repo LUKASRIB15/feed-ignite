@@ -1,0 +1,29 @@
+.wrapper{
+    max-width: 70rem; /* tamanho da máximo da div */
+    margin: 2rem auto; /* auto para que fique centralizado verticalmente */
+    padding: 0 1rem;
+
+    display: grid;
+    grid-template-columns: 256px 1fr; /* Sidebar tem width fixo de 256px e height flexível*/
+    gap: 2rem;
+    align-items: flex-start; /* funciona como um MainAxisAligment do flutter */
+}
+
+@media(max-width: 768px){
+    html{
+        font-size: 87.5%; /* Por isso é importante usar a unidade rem e não px */
+    }
+    .wrapper{
+        grid-template-columns: repeat(auto-fit, minmax(256px, 1fr)); /* Não vai ter duas colunas como fizemos para desktop. Agora ela terá 1 coluna flexivel*/
+    }
+    main{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+        align-items: flex-start;
+        
+
+
+    }
+    
+
+}

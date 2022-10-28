@@ -1,0 +1,42 @@
+:root{
+    --white: #fff;
+    
+    --green: #00875f;
+    --green-light: #00b37e;
+
+    --gray0: #29292e;
+    --gray1: #121214;
+    --gray2: #202024;
+    --gray3: #323238;
+    --gray4: #7c7c8a;
+    --gray5: #8d8d99;
+    --gray6: #c4c4cc;
+    --gray7: #e1e1e6;
+
+    --red-danger: #f75a68;
+
+
+}
+
+:focus{
+    outline: transparent;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: var(--gray1);
+    color: var(--gray7);
+    -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+
+}

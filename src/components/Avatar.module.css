@@ -1,0 +1,14 @@
+.avatar{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+}
+
+.avatarHasBorder{
+    box-sizing: initial; /*Serve para descomprimir a imagem que diminuiu pela adição das bordas*/
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+    border: 4px solid var(--gray2);
+    outline: 2px solid var(--green-light); /* Serve para pôr uma borda alem da que já existe*/
+}

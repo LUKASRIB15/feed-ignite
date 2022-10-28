@@ -1,0 +1,116 @@
+.comment{
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+
+.comment + .comment{
+    margin-top: 1.5rem;
+}
+
+.comment footer{
+    margin-left: 4.125rem;
+}
+
+.like{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: var(--gray5);
+
+    transition: color 0.2s;
+}
+
+.like:hover{
+    color: var(--green);
+}
+
+.like span::before{
+    /* Before adiciona um novo conteudo, nesse caso, dentro do span e nele
+    pode ser adicionado qualquer coisa, icone, texto... */
+    content: "\2022"; /* conteúdo que retorna o simbolo da bolinha */
+    padding: 0 0.25rem;
+}
+
+.iconLike{
+    margin-right: 0.625rem;
+}
+
+
+.avatarComment{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 8px;
+}
+
+.content{
+    width: 42.875rem;
+    height: 7.5rem;
+    border-radius: 8px;
+    background-color: var(--gray0);
+    padding: 1rem;
+
+}
+
+@media(max-width: 768px){
+    .content{
+        width: 100%;
+    }
+}
+
+.content time{
+    font-size: 0.75rem;
+    color: var(--gray5);
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+}
+
+.name{
+    display:flex;
+    flex-direction: column;
+    gap:0.25rem;
+    font-weight: bold;
+    color: var(--gray5);
+    font-size: 0.875rem;
+
+}
+
+.name time{
+    font-weight: normal;
+}
+
+.name div{
+    display: flex;
+    gap: 0.25rem;
+}
+
+.namePerfil{
+    color: var(--gray7);
+}
+
+.iconTrash{
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--gray5);
+    transition: color 0.2s;
+}
+
+.iconTrash:hover{
+    color: var(--red-danger);
+}
+
+.buttonDelete{
+    background-color: transparent; /* Tirar cor de fundo do botão */
+    border: none; 
+}
