@@ -4,6 +4,8 @@ import { SideBar } from "./components/SideBar"
 import styles from "./App.module.css"
 import "./global.css"
 
+import "./global.css"
+
 function App() {
   return (
     <>
