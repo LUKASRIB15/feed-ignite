@@ -1,21 +1,25 @@
 import { Header } from "./components/Header"
+import { SideBar } from "./components/SideBar"
 import { Post } from "./components/Post"
+
+import styles from "./App.module.css"
+import "./global.css"
+
 
 function App() {
   return (
     <>
-    <Header/>
-    <Post
-      author="Lucas Ribeiro"
-      content="L!orem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellendus minus sint, provident qui fugit possimus ipsa necessitatibus delectus est ut repudiandae, doloremque aspernatur excepturi. Perferendis id laboriosam earum voluptates"
-    />
-    <Post
-      author="Lucas Oliveira Ribeiro"
-      content="L!orem ipsum, dolor sit amet consectetur adipisicing elit. Rerum repellendus minus sint, provident qui fugit possimus ipsa necessitatibus delectus est ut repudiandae, doloremque aspernatur excepturi. Perferendis id laboriosam earum voluptates"
-    />
+      <Header/>
+      <div className={styles.wrapper}>
+        <SideBar/>
+        <main>
+          <Post author="Lucas Ribeiro" content="Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"/>
+          <Post author="Lucas Ribeiro" content="Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"/>
+          <Post author="Lucas Ribeiro" content="Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀"/>
+        </main>
+      </div>
     </>
   )
 }
 
 export default App
-
