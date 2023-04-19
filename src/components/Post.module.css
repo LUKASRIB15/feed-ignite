@@ -1,0 +1,118 @@
+span, time{
+  font-size: 1.4rem;
+  color: var(--gray-300);
+}
+
+.postContent{
+  background-color: var(--gray-600);
+  padding: 4rem;
+  border-radius: 8px;
+}
+
+.postContent + .postContent{
+  margin-top: 3.2rem;
+}
+
+/* Header do post */
+.postHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+}
+
+.profile img{
+  border: 4px solid transparent;
+  outline: 2px solid var(--green-light);
+  border-radius: 8px;
+  box-sizing: initial;
+}
+
+.profile div{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+
+/* Content do post */
+a{
+  font-weight: bold;
+  color: var(--green);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover{
+  color: var(--green-light);
+}
+
+.postMain{
+  margin-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid var(--gray-500);
+  line-height: 1.6;
+}
+
+/* Form Post */
+.postForm{
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+}
+
+.postForm label{
+  font-weight: bold;
+}
+
+.postForm textarea{
+  resize: none;
+  width: 100%;
+  height: 96px;
+  border: none;
+  background-color: var(--gray-700);
+  padding: 1.3rem 1.6rem;
+  border-radius: 8px;
+  color: var(--gray-200);
+}
+
+.postForm textarea::placeholder{
+  color: var(--gray-400);
+}
+
+.postForm textarea:focus{
+  outline: 1px solid var(--green-light);
+}
+
+.postForm button{
+  width: max-content;
+  padding: 1.6rem 2.4rem 1.4rem;
+  background-color: var(--green);
+  color: var(--white);
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  visibility: hidden;
+  max-height: 0;
+  display: none;
+}
+
+.postForm:focus-within button{
+  visibility: visible;
+  max-height: none;
+  display: block;
+}
+
+.postForm button:hover{
+  background-color: var(--green-light);
+}
