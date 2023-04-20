@@ -1,5 +1,8 @@
 span, time{
   font-size: 1.4rem;
+}
+
+time{
   color: var(--gray-300);
 }
 
@@ -32,6 +35,10 @@ span, time{
   outline: 2px solid var(--green-light);
   border-radius: 8px;
   box-sizing: initial;
+}
+
+.profile span{
+  color: var(--gray-300);
 }
 
 .profile div{

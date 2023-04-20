@@ -1,0 +1,95 @@
+/* Estilizando comentário */
+.comment{
+  margin-top: 3.2rem;
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  column-gap: 1.6rem;
+}
+
+.comment + .comment{
+  margin-top: 2.4rem;
+}
+
+.comment img{
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+}
+
+.comment .commentContent{
+  background-color: var(--gray-550);
+  border-radius: 9px;
+  padding: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.commentContent header{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+.commentContent .contentProfile{
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+.contentProfile strong{
+  font-size: 1.4rem;
+}
+
+.contentProfile span{
+  color: var(--gray-300);
+}
+
+.contentProfile time{
+  font-size: 1.2rem;
+}
+
+.commentContent p{
+  font-size: 1.4rem;
+  color: var(--gray-200);
+  margin-bottom: 0.9rem;
+}
+
+/* Estilizando botões */
+.buttonRemove{
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  color: var(--gray-300);
+  transition: color 0.2s;
+}
+
+.buttonRemove:hover{
+  color: var(--red-danger);
+}
+
+.buttonCongratulations{
+  display: flex;
+  align-items: center;
+
+  color: var(--gray-300);
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.buttonCongratulations svg{
+  margin-right: 1rem;
+}
+
+.buttonCongratulations span::before{
+  content: '\2022';
+  padding: 0 0.4rem;
+}
+
+.buttonCongratulations:hover{
+  color: var(--gray-100);
+}
+
+
