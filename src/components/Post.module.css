@@ -34,6 +34,10 @@ time{
   color: var(--gray-300);
 }
 
+.profile span{
+  color: var(--gray-300);
+}
+
 .profile div{
   display: flex;
   flex-direction: column;
