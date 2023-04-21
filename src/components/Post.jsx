@@ -1,16 +1,13 @@
 import styles from "./Post.module.css"
 import { Comment } from "./Comment"
+import { Avatar } from "./Avatar"
 
 export function Post(props){
   return(
     <div className={styles.postContent}>
       <header className={styles.postHeader}>
         <div className={styles.profile}>
-          <img 
-            src="https://github.com/LUKASRIB15.png"
-            width={50}
-            height={50}
-          />
+          <Avatar hasBorder src={props.image}/>
           <div>
             <strong>{props.author}</strong>
             <span>Dev Full-stack</span>
@@ -37,10 +34,12 @@ export function Post(props){
       <Comment
         author="Lucas Ribeiro"
         content="Muito bom Devon, parabéns!! 👏👏"
+        image="https://github.com/LUKASRIB15.png"
       />
       <Comment
         author="Italo Paula"
         content="Parabéns, Lucas! Ótimo trabalho"
+        image="https://github.com/italoopaula.png"
       />
     </div>
   )

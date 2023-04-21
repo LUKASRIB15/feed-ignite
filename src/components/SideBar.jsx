@@ -1,3 +1,4 @@
+import { Avatar } from "./Avatar"
 import styles from "./SideBar.module.css"
 import { PencilSimpleLine } from "phosphor-react"
 
@@ -12,10 +13,7 @@ export function SideBar(){
         height={72}
       />
       <main className={styles.profile}>
-        <img 
-          src="https://github.com/LUKASRIB15.png" 
-          alt="Imagem de perfil do usuário"
-        />
+        <Avatar hasBorder src="https://github.com/LUKASRIB15.png"/>
         <strong>Lucas Ribeiro</strong>
         <span>Dev FullStack</span>
       </main>
@@ -23,7 +21,6 @@ export function SideBar(){
         <a 
           href="#" 
           className={styles.editProfile} 
-          type="button"
         >
           <PencilSimpleLine size={20}/>
           Editar seu perfil
