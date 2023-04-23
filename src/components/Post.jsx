@@ -1,46 +1,77 @@
+import {dateFormatted, dateRelativeToNow} from "../Utils/formatData"
 import styles from "./Post.module.css"
 import { Comment } from "./Comment"
 import { Avatar } from "./Avatar"
+import { useState } from "react"
 
-export function Post(props){
+export function Post({author, publishedAt, content}){
+  const [comments, setComment] = useState([])
+  const [newCommentText, setNewCommentText] = useState('')
+
+  const publishedAtFormatted = dateFormatted(publishedAt);
+  const publishedAtRelativeToNow = dateRelativeToNow(publishedAt)
+  
+  function handleCreateNewComment(event){
+    event.preventDefault()
+    setComment([...comments, {content: newCommentText, publishedAt: new Date()}])
+    setNewCommentText('')
+  }
+
+  function handleNewCommentChange(event){
+    setNewCommentText(event.target.value)
+  }
+
   return(
     <div className={styles.postContent}>
       <header className={styles.postHeader}>
         <div className={styles.profile}>
-          <Avatar hasBorder src={props.image}/>
+          <Avatar hasBorder src={author.avatarUrl}/>
           <div>
-            <strong>{props.author}</strong>
-            <span>Dev Full-stack</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
-        <time>Publicado há 1h</time>
+        <time title={publishedAtFormatted} dateTime={publishedAt.toISOString()}>Publicado {publishedAtRelativeToNow}</time>
       </header>
       <main className={styles.postMain}>
-        <p>
-        Fala galeraa 👋
-        <br/><br/>
-        {props.content}
-        <br/><br/>
-        <a href="#">👉 jane.design/doctorcare</a>
-        <br/><br/>
-        <a href="#">#novoprojeto</a>{' '}<a href="#">#nlw</a>{' '}<a href="#">#rocketseat</a>
-        </p>
+        {content.map(line=>{
+          if(line.type=="paragraph"){
+            return (
+              <>
+                <p>{line.content}</p>
+                <br/>
+              </>
+            )
+          }else if(line.type=="link"){
+            return (
+              <>
+                <a href="#">{line.content}</a>
+                <br/>
+              </>
+            )
+          }
+        })}
       </main>
-      <form className={styles.postForm}>
+      <form onSubmit={()=>handleCreateNewComment(event)} className={styles.postForm}>
         <label for="textareaContent">Deixe seu feedback</label>
-        <textarea id="textareaContent" placeholder="Escreva um comentário..."/>
+        <textarea 
+          id="textareaContent" 
+          placeholder="Escreva um comentário..."
+          value={newCommentText}
+          onChange={()=>handleNewCommentChange(event)}
+        />
         <button type="submit">Publicar</button>
       </form>
-      <Comment
-        author="Lucas Ribeiro"
-        content="Muito bom Devon, parabéns!! 👏👏"
-        image="https://github.com/LUKASRIB15.png"
-      />
-      <Comment
-        author="Italo Paula"
-        content="Parabéns, Lucas! Ótimo trabalho"
-        image="https://github.com/italoopaula.png"
-      />
+      {
+        comments.map(comment=>{
+          return (
+            <Comment
+              content={comment.content}
+              publishedAt={comment.publishedAt}
+            />
+          )
+        })
+      }
     </div>
   )
 }
