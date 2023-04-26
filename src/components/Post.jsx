@@ -21,6 +21,15 @@ export function Post({author, publishedAt, content}){
     setNewCommentText(event.target.value)
   }
 
+  function deleteComment(commentDelete){
+    console.log("entrei")
+    const newCommentsList = comments.filter(comment=>{
+      return comment.content!=commentDelete;
+    })
+    console.log(newCommentsList)
+    setComment(newCommentsList)
+  }
+
   return(
     <div className={styles.postContent}>
       <header className={styles.postHeader}>
@@ -37,17 +46,11 @@ export function Post({author, publishedAt, content}){
         {content.map(line=>{
           if(line.type=="paragraph"){
             return (
-              <>
-                <p>{line.content}</p>
-                <br/>
-              </>
+                <p key={line.id}>{line.content}</p>              
             )
           }else if(line.type=="link"){
             return (
-              <>
-                <a href="#">{line.content}</a>
-                <br/>
-              </>
+                <p key={line.id}><a href="#">{line.content}</a></p>
             )
           }
         })}
@@ -66,8 +69,10 @@ export function Post({author, publishedAt, content}){
         comments.map(comment=>{
           return (
             <Comment
+              key={comment.content}
               content={comment.content}
               publishedAt={comment.publishedAt}
+              onDeleteComment={deleteComment}
             />
           )
         })
