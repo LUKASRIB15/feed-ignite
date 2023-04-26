@@ -3,9 +3,13 @@ import { ThumbsUp, Trash } from "phosphor-react"
 import styles from "./Comment.module.css"
 import { Avatar } from "./Avatar"
 
-export function Comment({content, publishedAt}){
+export function Comment({content, publishedAt, onDeleteComment}){
   const publishedAtFormatted = dateFormatted(publishedAt);
   const publishedAtRelativeToNow = dateRelativeToNow(publishedAt)
+
+  function handleDeleteComment(){
+    onDeleteComment(content)
+  }
 
   return(
     <article className={styles.comment}>
@@ -17,7 +21,7 @@ export function Comment({content, publishedAt}){
               <strong>Lucas Ribeiro{' '}<span>(você)</span></strong>
               <time title={publishedAtFormatted} dateTime={publishedAt.toISOString()}>{publishedAtRelativeToNow}</time>
             </div>
-            <button className={styles.buttonRemove}>
+            <button onClick={handleDeleteComment} className={styles.buttonRemove}>
               <Trash size={24}/>
             </button>
           </header>
