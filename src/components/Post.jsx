@@ -11,6 +11,8 @@ export function Post({author, publishedAt, content}){
   const publishedAtFormatted = dateFormatted(publishedAt);
   const publishedAtRelativeToNow = dateRelativeToNow(publishedAt)
   
+  const newCommentIsEmpty = newCommentText.length == 0;
+
   function handleCreateNewComment(event){
     event.preventDefault()
     setComment([...comments, {content: newCommentText, publishedAt: new Date()}])
@@ -18,6 +20,7 @@ export function Post({author, publishedAt, content}){
   }
 
   function handleNewCommentChange(event){
+    event.target.setCustomValidity("")
     setNewCommentText(event.target.value)
   }
 
@@ -28,6 +31,10 @@ export function Post({author, publishedAt, content}){
     })
     console.log(newCommentsList)
     setComment(newCommentsList)
+  }
+
+  function handleNewCommentInvalid(event){
+    event.target.setCustomValidity("Campo obrigatório!")
   }
 
   return(
@@ -62,8 +69,10 @@ export function Post({author, publishedAt, content}){
           placeholder="Escreva um comentário..."
           value={newCommentText}
           onChange={()=>handleNewCommentChange(event)}
+          onInvalid={()=>handleNewCommentInvalid(event)}
+          required
         />
-        <button type="submit">Publicar</button>
+        <button type="submit" disabled={newCommentIsEmpty}>Publicar</button>
       </form>
       {
         comments.map(comment=>{

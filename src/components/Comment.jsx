@@ -2,13 +2,24 @@ import {dateFormatted, dateRelativeToNow} from "../Utils/formatData"
 import { ThumbsUp, Trash } from "phosphor-react"
 import styles from "./Comment.module.css"
 import { Avatar } from "./Avatar"
+import { useState } from "react"
 
 export function Comment({content, publishedAt, onDeleteComment}){
+  const [likeCount, setLikeCount] = useState(0);
+  
   const publishedAtFormatted = dateFormatted(publishedAt);
   const publishedAtRelativeToNow = dateRelativeToNow(publishedAt)
 
+  const alreadyLikedComment = likeCount > 0;
+
   function handleDeleteComment(){
     onDeleteComment(content)
+  }
+
+  function handleLikeComment(){
+    setLikeCount(state=>{
+      return state+1;
+    })
   }
 
   return(
@@ -27,9 +38,9 @@ export function Comment({content, publishedAt, onDeleteComment}){
           </header>
           <p>{content}</p>
         </div>
-        <button className={styles.buttonCongratulations}>
+        <button onClick={handleLikeComment} className={alreadyLikedComment ? styles.buttonAfterCongratulations: styles.buttonBeforeCongratulations}>
           <ThumbsUp size={20}/>
-            Aplaudir <span>01</span>
+            Aplaudir <span>{likeCount}</span>
         </button>
       </main>
     </article>
